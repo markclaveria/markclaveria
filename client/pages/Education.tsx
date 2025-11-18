@@ -15,7 +15,7 @@ export default function Education() {
             src={groupImage}
             alt="Group 25"
             draggable="false"
-            className="w-full max-w-[85%] h-auto object-contain mx-auto mt-[-7%]"
+            className="w-full max-w-[80%] h-auto object-contain mx-auto mt-[-7%]"
             loading="lazy"
           />
         </div>
