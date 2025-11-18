@@ -13,7 +13,7 @@ export default function Index() {
             src={groupImage}
             alt="Group 20"
               draggable="false"
-            className="w-full max-w-[75%] h-auto object-contain mx-auto mt-[-7%]"
+            className="w-full max-w-[70%] h-auto object-contain mx-auto mt-[-7%]"
             loading="lazy"
           />
         </div>
