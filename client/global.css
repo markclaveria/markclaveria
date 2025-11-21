@@ -29,6 +29,9 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
+    
+    --brand-blue: 215 90% 54%;      /* e.g., Tailwind "blue-600" vibe */
+    --brand-black: 220 13% 18%
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;

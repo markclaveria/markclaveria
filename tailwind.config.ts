@@ -13,7 +13,16 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        thegand: ['Thegand', 'sans-serif'],
+        zolo: ['ZOLO', 'sans-serif'],
+        circular: ['Circular Std', 'sans-serif'],
+      },
       colors: {
+        "brand-blue": "hsl(var(--brand-blue))",
+        "brand-black": "hsl(var(--brand-black))",
+        "brand-green": "hsl(var(--brand-green))",
+        "brand-purple": "hsl(var(--brand-purple))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -57,16 +66,6 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        brand: {
-          blue: "#1E63E8",
-          text: "#1D1D1D",
-          gray: "#D9D9D9",
-        },
-      },
-      fontFamily: {
-        questrial: ['Questrial', 'sans-serif'],
-        circular: ['Circular Std', 'sans-serif'],
-        thegand: ['Thegand', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

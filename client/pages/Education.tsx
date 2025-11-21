@@ -1,25 +1,24 @@
-import { Link } from "react-router-dom";
-import Header from "@/components/Header";
-import groupImage from './Group 25.svg';
-import { Group } from "lucide-react";
-
+import Navigation from "@/components/Navigation";
+import Edu from "./Education1.svg";
 
 export default function Education() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
+    // Unscrollable page + layering context
+    <div className="h-screen overflow-hidden relative bg-white">
+      {/* Full-viewport SVG background at the very back */}
+      <img
+        src={Edu}
+        alt=""
+        className="fixed inset-0 w-screen h-screen object-contain z-0 pointer-events-none bg-white"
+      />
 
-      <main className="relative pb-12 max-w-[1440px] mx-auto" style={{ padding: "96px 48px 48px" }}>
-        <div className="flex justify-center items-center w-full min-h-[570px] px-5">
-          <img
-            src={groupImage}
-            alt="Group 25"
-            draggable="false"
-            className="w-full max-w-[77%] h-auto object-contain mx-auto mt-[-10%]"
-            loading="lazy"
-          />
-        </div>
-      </main>
+      {/* Foreground content above the background */}
+      <div className="relative z-10">
+        <Navigation />
+        <main className="pt-14">
+          {/* Education section content goes here */}
+        </main>
+      </div>
     </div>
   );
 }
