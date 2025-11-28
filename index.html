@@ -130,19 +130,37 @@
 
         .page button {
             position: absolute;
-            bottom: 20px;
-            padding: 10px 20px;
-            background-color: rgba(255, 255, 255, 0.8);
+            bottom: 10px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.6);
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 500;
+            color: #1d1d1d;
+
+            /* subtle shadow */
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+
+            /* smooth animation */
+            transition:
+                background-color 0.25s ease,
+                transform 0.15s ease,
+                box-shadow 0.25s ease;
         }
 
+        /* Hover: slightly larger + clearer color + stronger shadow */
         .page button:hover {
-            background-color: rgba(255, 255, 255, 1);
+            background-color: rgba(255, 255, 255, 0.95);
             transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.22);
+        }
+
+        /* Click: gentle press-down effect */
+        .page button:active {
+            transform: scale(0.96);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
         }
 
         .prev-btn {
@@ -172,27 +190,27 @@
 
     <div id="pages">
         <div class="page active" id="about">
-            <img src="About.png" alt="About"> <!-- Replace with your image path -->
-            <button class="next-btn" data-next="education">Next</button>
+            <img src="about.svg" alt="About"> <!-- Replace with your image path -->
+            <button class="next-btn" data-next="education">Next 👉</button>
         </div>
         <div class="page" id="education">
-            <img src="Education.png" alt="Education"> <!-- Replace with your image path -->
-            <button class="prev-btn" data-prev="about">Previous</button>
-            <button class="next-btn" data-next="achievements">Next</button>
+            <img src="education.png" alt="Education"> <!-- Replace with your image path -->
+            <button class="prev-btn" data-prev="about">👈 Previous</button>
+            <button class="next-btn" data-next="achievements">Next 👉</button>
         </div>
         <div class="page" id="achievements">
-            <img src="Achievements.png" alt="Achievements"> <!-- Replace with your image path -->
-            <button class="prev-btn" data-prev="education">Previous</button>
-            <button class="next-btn" data-next="family">Next</button>
+            <img src="achievements.jpg" alt="Achievements"> <!-- Replace with your image path -->
+            <button class="prev-btn" data-prev="education">👈 Previous</button>
+            <button class="next-btn" data-next="family">Next 👉</button>
         </div>
         <div class="page" id="family">
-            <img src="Family.png" alt="My Family"> <!-- Replace with your image path -->
-            <button class="prev-btn" data-prev="achievements">Previous</button>
-            <!-- <button class="next-btn" data-next="batchmates">Next</button> -->
+            <img src="family.jpg" alt="My Family"> <!-- Replace with your image path -->
+            <button class="prev-btn" data-prev="achievements">👈 Previous</button>
+            <!-- <button class="next-btn" data-next="batchmates">Next 👉</button> -->
         </div>
         <div class="page" id="batchmates">
-            <img src="Batchmates.png" alt="My Batchmates"> <!-- Replace with your image path -->
-            <!--<button class="prev-btn" data-prev="family">Previous</button> -->
+            <img src="batchmates.jpg" alt="My Batchmates"> <!-- Replace with your image path -->
+            <!--<button class="prev-btn" data-prev="family">👈 Previous</button> -->
         </div>
     </div>
 
@@ -233,6 +251,7 @@
     </script>
 </body>
 </html>
+
 
 
 
