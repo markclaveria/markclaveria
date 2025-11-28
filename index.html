@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Claveria Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Circular', sans-serif; /* Assuming you have this font, or use a fallback */
+            overflow: hidden; /* Prevent scrolling */
+            background-color: #fff;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 50;
+            width: 100%;
+            max-width: 800px; /* lg:w-[600px] equivalent */
+        }
+
+        .nav-container {
+            display: flex;
+            height: 16px; /* h-14 */
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0px; /* gap-3 */
+            border-bottom-left-radius: 16px; /* rounded-bl-2xl */
+            background-color: white;
+            padding: 0px; /* px-4 py-4 */
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* shadow-sm */
+        }
+
+        @media (min-width: 768px) {
+            .nav-container {
+                gap: 16px; /* md:gap-6 */
+                padding: 16px; /* md:px-6 md:pr-16 */
+            }
+        }
+
+        #logo {
+            font-size: 20px; /* text-xl */
+            text-decoration: none;
+            color: inherit;
+        }
+
+        #logo img {
+            height: 28px; /* Adjust as needed */
+            width: 123px;
+        }
+
+        @media (min-width: 768px) {
+            #logo {
+                font-size: 16px; /* md:text-2xl */
+            }
+        }
+
+        nav {
+            display: flex-start;
+            flex: unset;
+            padding-right: 40px;
+            align-items: center;
+            justify-content: end;
+            gap: 8px; /* gap-3 */
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                gap: 0px; /* md:gap-6 */
+            }
+        }
+
+        .nav-link {
+            font-size: 14px; /* text-sm */
+            font-weight: 450;
+            text-decoration: none;
+            color: #1D1D1D;
+            padding: 8px 8px;
+            border-radius: 4px;
+            transition: color 0.3s, background-color 0.3s, transform 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #A6B9FA; /* Replace with your brand color, e.g., #ff0000 */
+            background-color: rgba(0, 0, 0, 0.05);
+            transform: scale(1.05);
+        }
+
+        .nav-link.active {
+            color: #1E63E8; /* Active state */
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .nav-link {
+                font-size: 16px; /* md:text-base */
+            }
+        }
+
+        #pages {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        .page img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensure image covers the whole page */
+        }
+
+        .page button {
+            position: absolute;
+            bottom: 20px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .page button:hover {
+            background-color: rgba(255, 255, 255, 1);
+            transform: scale(1.05);
+        }
+
+        .prev-btn {
+            left: 20px;
+        }
+
+        .next-btn {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header id="nav">
+        <div class="nav-container">
+            <a href="#" id="logo">
+                <img src="markclaveria.svg" alt="Mark Claveria"> <!-- Replace with your logo image path -->
+            </a>
+            <nav>
+                <a href="#" class="nav-link active" data-page="about">ABOUT</a>
+                <a href="#" class="nav-link" data-page="education">EDUCATION</a>
+                <a href="#" class="nav-link" data-page="achievements">ACHIEVEMENTS</a>
+                <a href="#" class="nav-link" data-page="family">MY FAMILY</a>
+                <a href="#" class="nav-link" data-page="batchmates">MY BATCHMATES</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="pages">
+        <div class="page active" id="about">
+            <img src="about.svg" alt="About"> <!-- Replace with your image path -->
+            <button class="next-btn" data-next="education">Next</button>
+        </div>
+        <div class="page" id="education">
+            <img src="education.png" alt="Education"> <!-- Replace with your image path -->
+            <button class="prev-btn" data-prev="about">Previous</button>
+            <button class="next-btn" data-next="achievements">Next</button>
+        </div>
+        <div class="page" id="achievements">
+            <img src="achievements.jpg" alt="Achievements"> <!-- Replace with your image path -->
+            <button class="prev-btn" data-prev="education">Previous</button>
+            <button class="next-btn" data-next="family">Next</button>
+        </div>
+        <div class="page" id="family">
+            <img src="family.jpg" alt="My Family"> <!-- Replace with your image path -->
+            <button class="prev-btn" data-prev="achievements">Previous</button>
+            <!-- <button class="next-btn" data-next="batchmates">Next</button> -->
+        </div>
+        <div class="page" id="batchmates">
+            <img src="batchmates.jpg" alt="My Batchmates"> <!-- Replace with your image path -->
+            <!--<button class="prev-btn" data-prev="family">Previous</button> -->
+        </div>
+    </div>
+
+    <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+        const nextBtns = document.querySelectorAll('.next-btn');
+        const prevBtns = document.querySelectorAll('.prev-btn');
+
+        function showPage(pageId) {
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            navLinks.forEach(link => link.classList.remove('active'));
+            document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = e.target.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
+
+        nextBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const nextPage = btn.getAttribute('data-next');
+                showPage(nextPage);
+            });
+        });
+
+        prevBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const prevPage = btn.getAttribute('data-prev');
+                showPage(prevPage);
+            });
+        });
+    </script>
+</body>
+</html>
