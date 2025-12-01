@@ -125,30 +125,72 @@
         .page img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Ensure image covers the whole page */
+            object-fit:fill; /* Ensure image covers the whole page */
         }
 
-        .page button {
+        .batch {
             position: absolute;
-            bottom: 10px;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.6);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .batch.active {
+            display: flex;
+        }
+
+        .batch img {
+            width: 100%;
+            height: 100%;
+            object-fit:cover; /* Ensure image covers the whole page */
+        }
+
+
+        /* Container that holds both buttons (bottom-right stack) */
+        .nav-buttons {
+            text-align: center;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+
+            display: flex;
+            flex-direction: row; /* Previous on top, Next below */
+            align-items: flex-end; 
+            gap: 10px;
+
+            pointer-events: none; /* buttons inside still clickable */
+        }
+
+        .nav-buttons button {
+            pointer-events: auto;
+            min-width: 120px;
+            padding: 10px 16px;
             border: none;
-            border-radius: 8px;
-            cursor: pointer;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.6);
             font-size: 16px;
             font-weight: 500;
-            color: #1d1d1d;
+            cursor: pointer;
 
-            /* subtle shadow */
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-
-            /* smooth animation */
-            transition:
-                background-color 0.25s ease,
-                transform 0.15s ease,
-                box-shadow 0.25s ease;
+            transition: 0.2s ease;
         }
+
+        /* Hover effect */
+        .nav-buttons button:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.9);
+        }
+
+        /* Invisible + disabled NEXT button on last page */
+        .next-btn.disabled {
+            opacity: 0;
+            pointer-events: none; /* not clickable */
+        }
+
 
         /* Hover: slightly larger + clearer color + stronger shadow */
         .page button:hover {
@@ -163,20 +205,19 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.18);
         }
 
-        .prev-btn {
-            left: 20px;
-        }
+/* OPTIONAL: Hide Next button on last page without disabling it */
+.next-btn.invisible {
+    opacity: 0;
+    pointer-events: none; /* NOT clickable */
+}
 
-        .next-btn {
-            right: 20px;
-        }
     </style>
 </head>
 <body>
     <header id="nav">
         <div class="nav-container">
             <a href="#" id="logo">
-                <img src="markclaveria.svg" alt="Mark Claveria"> <!-- Replace with your logo image path -->
+                <img src="markclaveria.svg" alt="Mark Claveria">
             </a>
             <nav>
                 <a href="#" class="nav-link active" data-page="about">ABOUT</a>
@@ -191,26 +232,37 @@
     <div id="pages">
         <div class="page active" id="about">
             <img src="About.png" alt="About"> <!-- Replace with your image path -->
-            <button class="next-btn" data-next="education">Next 👉</button>
+            <div class="nav-buttons">
+                <button class="next-btn" data-next="education">Next 👉</button>
+            </div>
         </div>
         <div class="page" id="education">
             <img src="Education.png" alt="Education"> <!-- Replace with your image path -->
-            <button class="prev-btn" data-prev="about">👈 Previous</button>
-            <button class="next-btn" data-next="achievements">Next 👉</button>
+            <div class="nav-buttons">
+                <button class="prev-btn" data-prev="about">Previous 👈</button>
+                <button class="next-btn" data-next="achievements">Next 👉</button>
+            </div>
         </div>
         <div class="page" id="achievements">
             <img src="Achievements.png" alt="Achievements"> <!-- Replace with your image path -->
-            <button class="prev-btn" data-prev="education">👈 Previous</button>
-            <button class="next-btn" data-next="family">Next 👉</button>
+            <div class="nav-buttons">
+                <button class="prev-btn" data-prev="education">Previous 👈</button>
+                <button class="next-btn" data-next="family">Next 👉</button>
+            </div>
         </div>
         <div class="page" id="family">
             <img src="Family.png" alt="My Family"> <!-- Replace with your image path -->
-            <button class="prev-btn" data-prev="achievements">👈 Previous</button>
-            <!-- <button class="next-btn" data-next="batchmates">Next 👉</button> -->
+            <div class="nav-buttons">
+                <button class="prev-btn" data-prev="achievements">Previous 👈</button>
+                <button class="next-btn" data-next="batchmates">Next 👉</button>
+            </div>
         </div>
-        <div class="page" id="batchmates">
-            <img src="Batchmates.png" alt="My Batchmates"> <!-- Replace with your image path -->
-            <!--<button class="prev-btn" data-prev="family">👈 Previous</button> -->
+        <div class="batch" id="batchmates">
+            <img src="Batchmates1.png" alt="My Batchmates"> <!-- Replace with your image path -->
+            <div class="nav-buttons">
+                <button class="prev-btn" data-prev="family">Previous 👈</button>
+                <button class="next-btn invisible" data-next="">Next 👉</button>
+            </div>
         </div>
     </div>
 
@@ -251,7 +303,6 @@
     </script>
 </body>
 </html>
-
 
 
 
